@@ -40,7 +40,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3221991083002369258}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22217a5dc77ee404ca3581a8ffbb37e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 3221991083002369256}
   moveSpeed: 25
   turnSpeed: 100
   moveKey: 119

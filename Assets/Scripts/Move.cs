@@ -1,11 +1,16 @@
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.Networking;
 
 public class Move : NetworkBehaviour
 {
 
+    public Camera cam;
+
     [Header("Move")]
     public float moveSpeed;
+
+    
 
     [Header("Turn")]
     public float turnSpeed;
@@ -23,6 +28,13 @@ public class Move : NetworkBehaviour
 
     void Start()
     {
+
+        if (IsLocalPlayer)
+        {
+
+            cam.enabled = true;
+
+        }        
 
         rb = GetComponent<Rigidbody>();
 
