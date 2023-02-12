@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class Move : NetworkBehaviour
 {
 
+    public int index;
+    public Dictionary<int, Vector3> positions = new Dictionary<int, Vector3>();
+    public List<Vector3> indexer = new List<Vector3>();
+
     public Camera cam;
 
     [Header("Move")]
@@ -27,26 +31,33 @@ public class Move : NetworkBehaviour
     void Start()
     {
 
+        if (IsHost)
+        {
+
+            foreach (Vector3 index in indexer)
+            {
+
+                positions.Add(this.index, index);
+                this.index++;
+
+            }
+
+            index = 0;
+
+        }
+
         if (IsLocalPlayer)
         {
 
-            PositionServerRpc();
-
             cam.enabled = true;
 
-            transform.position = new Vector3(-8, transform.position.y, 121);
+            transform.position = new Vector3(positions[index].x, transform.position.y, positions[index].z);
+
+            index++;
 
         }        
 
         rb = GetComponent<Rigidbody>();
-
-    }
-
-    [ServerRpc]
-    public void PositionServerRpc()
-    {
-
-
 
     }
 

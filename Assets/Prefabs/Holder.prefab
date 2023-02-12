@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22217a5dc77ee404ca3581a8ffbb37e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
+  indexer:
+  - {x: -8, y: 0.5, z: 121}
+  - {x: 34.38, y: 0.5, z: -105}
   cam: {fileID: 430635773180483773}
   moveSpeed: 25
   turnSpeed: 100
