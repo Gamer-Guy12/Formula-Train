@@ -5,9 +5,7 @@ using System.Collections.Generic;
 public class Move : NetworkBehaviour
 {
 
-    public NetworkVariable<int> index = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-    public Dictionary<int, Vector3> positions = new Dictionary<int, Vector3>();
-    public List<Vector3> indexer = new List<Vector3>();
+    public List<Vector3> spawnPoints = new List<Vector3>();
 
     public Camera cam;
 
@@ -16,8 +14,6 @@ public class Move : NetworkBehaviour
 
     [Header("Turn")]
     public float turnSpeed;
-
-    Vector3 rotation;
 
     [Header("Keys")]
     public KeyCode moveKey = KeyCode.W;
@@ -28,61 +24,19 @@ public class Move : NetworkBehaviour
     [Header("Refrences")]
     public Rigidbody rb;
 
-    public override void OnNetworkSpawn()
-    {
-
-        index.OnValueChanged += (int previousValue, int newValue) =>
-        {
-
-            index.Value = newValue;
-
-        };
-
-    }
-
     void Start()
     {
-
-        if (IsHost)
-        {
-
-            foreach (Vector3 index in indexer)
-            {
-
-                positions.Add(this.index.Value, index);
-                this.index.Value++;
-
-            }
-
-            index.Value = 0;
-
-        }
 
         if (IsLocalPlayer)
         {
 
             cam.enabled = true;
 
-            transform.position = new Vector3(positions[index.Value].x, positions[index.Value].y, positions[index.Value].z);
-
-            index.Value++;
+            transform.position = spawnPoints[(int)OwnerClientId];
 
         }        
 
         rb = GetComponent<Rigidbody>();
-
-    }
-
-    [ClientRpc]
-    public void PositionsClientRpc(ulong id)
-    {
-
-        if (OwnerClientId == id)
-        {
-
-
-
-        }
 
     }
 
@@ -104,7 +58,7 @@ public class Move : NetworkBehaviour
         if (Input.GetKey(moveKey))
         {
 
-            rb.AddForce(-transform.forward * moveSpeed * 10, ForceMode.Force);
+            rb.AddForce(-transform.right * moveSpeed * 10, ForceMode.Force);
 
         }
 
@@ -124,7 +78,7 @@ public class Move : NetworkBehaviour
                 rb.velocity = Vector3.zero;
 
             }
-            rb.AddForce(transform.forward * moveSpeed * 5, ForceMode.Force);
+            rb.AddForce(transform.right * moveSpeed * 5, ForceMode.Force);
 
         }
    
