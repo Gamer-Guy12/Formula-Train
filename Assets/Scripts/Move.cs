@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Netcode;
-using UnityEngine.Networking;
+using System.Collections.Generic;
 
 public class Move : NetworkBehaviour
 {
@@ -9,8 +9,6 @@ public class Move : NetworkBehaviour
 
     [Header("Move")]
     public float moveSpeed;
-
-    
 
     [Header("Turn")]
     public float turnSpeed;
@@ -32,11 +30,23 @@ public class Move : NetworkBehaviour
         if (IsLocalPlayer)
         {
 
+            PositionServerRpc();
+
             cam.enabled = true;
+
+            transform.position = new Vector3(-8, transform.position.y, 121);
 
         }        
 
         rb = GetComponent<Rigidbody>();
+
+    }
+
+    [ServerRpc]
+    public void PositionServerRpc()
+    {
+
+
 
     }
 
@@ -58,7 +68,7 @@ public class Move : NetworkBehaviour
         if (Input.GetKey(moveKey))
         {
 
-            rb.AddForce(transform.forward * moveSpeed * 10, ForceMode.Force);
+            rb.AddForce(-transform.forward * moveSpeed * 10, ForceMode.Force);
 
         }
 
