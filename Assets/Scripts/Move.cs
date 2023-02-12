@@ -88,7 +88,7 @@ public class Move : NetworkBehaviour
                 rb.velocity = Vector3.zero;
 
             }
-            rb.AddForce(-transform.forward * moveSpeed * 5, ForceMode.Force);
+            rb.AddForce(transform.forward * moveSpeed * 5, ForceMode.Force);
 
         }
    
