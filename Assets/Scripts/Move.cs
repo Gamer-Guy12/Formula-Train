@@ -43,6 +43,9 @@ public class Move : NetworkBehaviour
     void Update()
     {
 
+        if (Physics.Raycast(transform.position, transform.up, 3f)) transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
+        if (Physics.Raycast(transform.position, -transform.up, (float)1.813221 / 2f + 0.001f)) transform.rotation = Quaternion.Euler(0f, transform.rotation.y, transform.rotation.z);
+
         if (!IsOwner) return;
 
         Vector3 flatVel = new Vector3(rb.velocity.x, 0, rb.velocity.z);

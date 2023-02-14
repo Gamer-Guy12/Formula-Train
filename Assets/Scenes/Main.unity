@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 261831450}
   - component: {fileID: 261831449}
   - component: {fileID: 261831448}
+  - component: {fileID: 261831451}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -411,11 +412,6 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
-    - Override: 0
-      Prefab: {fileID: 1351520965}
-      SourcePrefabToOverride: {fileID: 0}
-      SourceHashToOverride: 0
-      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -446,6 +442,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &261831451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261831447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd1525bb8e01504284d8b65c9b1181c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScreen: {fileID: 9141628913615743599, guid: 3a6fdb243d0f1884588d08cddd6644c1, type: 3}
 --- !u!1 &439359032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1816,6 @@ GameObject:
   - component: {fileID: 1351520968}
   - component: {fileID: 1351520967}
   - component: {fileID: 1351520966}
-  - component: {fileID: 1351520971}
   m_Layer: 0
   m_Name: WinPoint
   m_TagString: Untagged
@@ -1906,22 +1914,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1351520971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351520965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 729120007
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &1483698625
 GameObject:
   m_ObjectHideFlags: 0

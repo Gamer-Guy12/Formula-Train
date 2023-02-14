@@ -1,26 +1,26 @@
-using TMPro;
+using Unity.Netcode;
 using UnityEngine;
+using TMPro;
 
 public class WinScreenManager : MonoBehaviour
 {
 
     public static WinScreenManager Singleton;
-    public TMP_Text winPlayer;
-    public Canvas winScreen;
+    public GameObject winScreen;
 
     void Awake()
     {
 
         Singleton = this;
-        winScreen.gameObject.SetActive(false);
 
     }
 
     public void ShowWinScreen(ulong id)
     {
 
-        winPlayer.text = "Player " + id.ToString() + " has won!!!";
-        winScreen.gameObject.SetActive(true);
+        GameObject spawned = Instantiate(winScreen);
+        spawned.GetComponent<NetworkObject>().Spawn(true);
+        spawned.GetComponentInChildren<TMP_Text>().text = "Player " + id.ToString() + " Has Won";
 
     }
 
