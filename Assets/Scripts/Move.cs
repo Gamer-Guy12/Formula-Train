@@ -58,7 +58,7 @@ public class Move : NetworkBehaviour
         if (Input.GetKey(moveKey))
         {
 
-            rb.AddForce(-transform.right * moveSpeed * 10, ForceMode.Force);
+            rb.AddForce(transform.right * moveSpeed * 10, ForceMode.Force);
 
         }
 
@@ -78,7 +78,7 @@ public class Move : NetworkBehaviour
                 rb.velocity = Vector3.zero;
 
             }
-            rb.AddForce(transform.right * moveSpeed * 5, ForceMode.Force);
+            rb.AddForce(-transform.right * moveSpeed * 5, ForceMode.Force);
 
         }
    
