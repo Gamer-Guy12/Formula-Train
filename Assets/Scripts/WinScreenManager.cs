@@ -15,12 +15,13 @@ public class WinScreenManager : MonoBehaviour
 
     }
 
-    public void ShowWinScreen(ulong id)
+    [ServerRpc]
+    public void AddWinScreenServerRpc(ulong id)
     {
 
         GameObject spawned = Instantiate(winScreen);
-        spawned.GetComponent<NetworkObject>().Spawn(true);
         spawned.GetComponentInChildren<TMP_Text>().text = "Player " + id.ToString() + " Has Won";
+        spawned.GetComponent<NetworkObject>().Spawn(true);
 
     }
 
