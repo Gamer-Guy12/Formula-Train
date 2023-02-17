@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Netcode;
 using System.Collections.Generic;
+using TMPro;
 
 public class Move : NetworkBehaviour
 {
@@ -8,6 +9,9 @@ public class Move : NetworkBehaviour
     public List<Vector3> spawnPoints = new List<Vector3>();
 
     public Camera cam;
+    public NetworkVariable<bool> winnerExists = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+    
 
     [Header("Move")]
     public float moveSpeed;
@@ -23,18 +27,31 @@ public class Move : NetworkBehaviour
 
     [Header("Refrences")]
     public Rigidbody rb;
+    public TMP_Text id;
+    public GameObject idCanvas;
 
-    void Start()
+    public override void OnNetworkSpawn()
     {
+        
+        winnerExists.OnValueChanged += (bool previous, bool current) => {
+
+            rb.constraints = RigidbodyConstraints.FreezePosition;
+
+            winnerExists = new NetworkVariable<bool>(current, NetworkVariableReadPermission.Everyone);
+
+        };
 
         if (IsLocalPlayer)
         {
 
             cam.enabled = true;
 
+            idCanvas.SetActive(true);
+            id.text = OwnerClientId.ToString();
+
             transform.position = spawnPoints[(int)OwnerClientId];
 
-        }        
+        }
 
         rb = GetComponent<Rigidbody>();
 
