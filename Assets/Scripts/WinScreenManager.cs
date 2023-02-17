@@ -2,18 +2,10 @@ using Unity.Netcode;
 using UnityEngine;
 using TMPro;
 
-public class WinScreenManager : MonoBehaviour
+public class WinScreenManager : NetworkBehaviour
 {
 
-    public static WinScreenManager Singleton;
     public GameObject winScreen;
-
-    void Awake()
-    {
-
-        Singleton = this;
-
-    }
 
     [ServerRpc]
     public void AddWinScreenServerRpc(ulong id)

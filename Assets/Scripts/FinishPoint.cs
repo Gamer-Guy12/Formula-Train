@@ -1,13 +1,15 @@
 using UnityEngine;
 using Unity.Netcode;
 
-public class FinishPoint : MonoBehaviour
+public class FinishPoint : NetworkBehaviour
 {
+
+    public WinScreenManager manager;
 
     void OnCollisionEnter(Collision collision)
     {
 
-        WinScreenManager.Singleton.AddWinScreenServerRpc(collision.gameObject.GetComponent<Move>().OwnerClientId);
+        manager.AddWinScreenServerRpc(collision.gameObject.GetComponent<Move>().OwnerClientId);
 
     }
 
