@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 1658645903344294861}
   - component: {fileID: 3292637500376218500}
   - component: {fileID: 4230739139783335549}
+  - component: {fileID: 7841916879165832048}
   m_Layer: 0
   m_Name: w
   m_TagString: Untagged
@@ -319,6 +320,15 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562609669431038933}
   m_Enabled: 1
+--- !u!45 &7841916879165832048
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562609669431038933}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: fa3c128d352652b499f6d2a282d8ed36, type: 2}
 --- !u!1 &4776436428259388734
 GameObject:
   m_ObjectHideFlags: 0
