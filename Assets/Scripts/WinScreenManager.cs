@@ -30,6 +30,7 @@ public class WinScreenManager : NetworkBehaviour
         {
 
             startCanvas.SetActive(true);
+            barrier.SetActive(true);
 
         }
 

@@ -60,6 +60,8 @@ public class Move : NetworkBehaviour
     void Update()
     {
 
+        rb.AddForce(Vector3.down * 100f, ForceMode.Acceleration);
+
         if (Physics.Raycast(transform.position, transform.up, 3f)) transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
         if (Physics.Raycast(transform.position, -transform.up, (float)1.813221 / 2f + 0.001f)) transform.rotation = Quaternion.Euler(0f, transform.rotation.y, transform.rotation.z);
 
