@@ -6,4 +6,5 @@ To play first find your internal IP. You can just google how to find it. Next in
 and they will join the game. The max players is 5 players and then you will get errors. 
 
 To race use the W key to go forward and the S key to go backwards. A and D keys will make you turn left and right respectively. To find the game go into the builds 
-folder and find the one that has the largest values. If you want to play it on the website go to gamer-guy12.github.io/Formula-Train-Website.
+folder and find the one that has the largest values. If you want to play it on the website go to 
+gamer-guy12.github.io/Formula-Train-Website.
