@@ -8,7 +8,10 @@ public class Move : NetworkBehaviour
 
     public List<Vector3> spawnPoints = new List<Vector3>();
 
-    public Camera cam;
+    public Camera firstPersonCam;
+    public Camera thirdPersonCam;
+    public TMP_Text buttonText;
+    bool firstCamisEnabled = true;
     public NetworkVariable<bool> winnerExists = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     
@@ -30,6 +33,29 @@ public class Move : NetworkBehaviour
     public TMP_Text id;
     public GameObject idCanvas;
 
+    public void SwapCam()
+    {
+
+        if (firstCamisEnabled)
+        {
+            firstPersonCam.gameObject.SetActive(false);
+            thirdPersonCam.gameObject.SetActive(true);
+
+            buttonText.text = "Swap to First Person";
+
+            firstCamisEnabled = false;
+            return;
+        }
+
+        firstPersonCam.gameObject.SetActive(true);
+        thirdPersonCam.gameObject.SetActive(false);
+
+        buttonText.text = "Swap to Third Person";
+
+        firstCamisEnabled = true;
+
+    }
+
     public override void OnNetworkSpawn()
     {
         
@@ -44,7 +70,7 @@ public class Move : NetworkBehaviour
         if (IsLocalPlayer)
         {
 
-            cam.enabled = true;
+            firstPersonCam.enabled = true;
 
             idCanvas.SetActive(true);
             id.text = OwnerClientId.ToString();

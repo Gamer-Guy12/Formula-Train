@@ -10,7 +10,6 @@ public class FinishPoint : NetworkBehaviour
     {
 
         manager.AddWinScreenServerRpc(collision.gameObject.GetComponent<Move>().OwnerClientId);
-        manager.AddWinScreen(collision.gameObject.GetComponent<Move>().OwnerClientId);
 
     }
 
