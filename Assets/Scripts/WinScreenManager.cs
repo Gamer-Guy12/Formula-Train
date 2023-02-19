@@ -20,6 +20,7 @@ public class WinScreenManager : NetworkBehaviour
 
         startCanvas.SetActive(false);
         barrier.SetActive(false);
+        barrier.GetComponent<NetworkObject>().Despawn(true);
 
     }
 

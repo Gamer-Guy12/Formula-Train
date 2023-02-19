@@ -36,10 +36,12 @@ public class Move : NetworkBehaviour
     public void SwapCam()
     {
 
+        if (!IsLocalPlayer) return;
+
         if (firstCamisEnabled)
         {
-            firstPersonCam.gameObject.SetActive(false);
-            thirdPersonCam.gameObject.SetActive(true);
+            firstPersonCam.enabled = false;
+            thirdPersonCam.enabled = true;
 
             buttonText.text = "Swap to First Person";
 
@@ -47,8 +49,8 @@ public class Move : NetworkBehaviour
             return;
         }
 
-        firstPersonCam.gameObject.SetActive(true);
-        thirdPersonCam.gameObject.SetActive(false);
+        firstPersonCam.enabled = true;
+        thirdPersonCam.enabled = false;
 
         buttonText.text = "Swap to Third Person";
 
