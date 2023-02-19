@@ -10,4 +10,6 @@ and they will join the game. The max players is 5 players and then you will get 
 To race use the W key to go forward and the S key to go backwards. A and D keys will make you turn left and right respectively. If you want to play it on the website go 
 to gamer-guy12.github.io/Formula-Train-Website.
 
+Goal of the game is to find and touch the green cube first
+
 Website isn't up yet.
